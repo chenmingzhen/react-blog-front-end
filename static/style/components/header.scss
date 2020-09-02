@@ -1,0 +1,41 @@
+.header {
+  background-color: #fff;
+  padding: 0.7rem;
+  overflow: hidden;
+  height: 3.5rem;
+  border-bottom: 1px solid #ccc;
+  line-height: 0 !important;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  box-shadow: rgba(0, 0, 0, 0.3) 0.125rem 0.4rem 0.2rem;
+  img {
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+  }
+  .ant-menu-horizontal {
+    line-height: 1.7rem !important;
+  }
+  .logo {
+    display: flex !important;
+    cursor: pointer;
+    align-items: center;
+  }
+}
+.header-logo {
+  font-size: 1.4rem;
+  font-family: Hind;
+}
+.header-txt {
+  font-size: 0.6rem;
+  color: #999;
+  padding-left: 1rem;
+}
+.ant-menu-item {
+  font-size: 1.3rem !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-family: Hind;
+}

@@ -1,0 +1,23 @@
+.list-title {
+  font-size: 1.3rem;
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+.list-context {
+  color: #4D4D4D;
+  padding: 0.5rem;
+}
+.list-icon {
+  padding: 0.5rem 0;
+  color: #4D4D4D;
+  display: flex;
+  .list-item {
+    display: flex;
+    padding: 0 10px;
+    margin: 0 .2rem;
+    >.text{
+      margin:0 .4rem;
+      font-weight: 700;
+    }
+  }
+}

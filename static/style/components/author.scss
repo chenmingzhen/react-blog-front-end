@@ -1,0 +1,15 @@
+.author-div {
+  text-align: center;
+  padding: 1rem;
+
+  > div {
+    margin-bottom: 1rem;
+  }
+  .author-introduction {
+    font-size: 1.2rem;
+    color: #000;
+    > a {
+      color: black !important;
+    }
+  }
+}
