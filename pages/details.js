@@ -12,9 +12,17 @@ import "../static/style/pages/detail.scss";
 import marked from "marked";
 import hljs from "highlight.js";
 import "highlight.js/styles/monokai-sublime.css";
+import Tocify from '../components/tocify.tsx';
 
 const Detailed = ({ article_content }) => {
+
+
+  const tocify = new Tocify()
   const renderer = new marked.Renderer();
+  renderer.heading = function(text, level, raw) {
+    const anchor = tocify.add(text, level);
+    return `<a id="${anchor}" href="#${anchor}" class="anchor-fix"><h${level}>${text}</h${level}></a>\n`;
+  };
 
   marked.setOptions({
     renderer:renderer,
@@ -30,7 +38,7 @@ const Detailed = ({ article_content }) => {
   })
 
   let html = marked(article_content);
-  console.log(html);
+
   return (
     <>
       <Head>
@@ -87,7 +95,9 @@ const Detailed = ({ article_content }) => {
           <Affix offsetTop={30}>
             <div className="detailed-nav comm-box">
               <div className="nav-title">文章目录</div>
-              <MarkNav className="article-menu" source={html} ordered={false} />
+              <div className="toc-list">
+                {tocify && tocify.render()}
+              </div>
             </div>
           </Affix>
         </Col>
