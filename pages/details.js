@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import Author from "../components/Author";
 import Footer from "../components/Footer";
 import Icon from "../components/Icon";
-import MarkNav from "markdown-navbar";
+import  servicePath  from '../config/apiUrl'
 import axios from "axios";
 import "markdown-navbar/dist/navbar.css";
 import "../static/style/pages/detail.scss";
@@ -13,6 +13,7 @@ import marked from "marked";
 import hljs from "highlight.js";
 import "highlight.js/styles/monokai-sublime.css";
 import Tocify from '../components/tocify.tsx';
+import Link from 'next/link'
 
 const Detailed = ({ article_content }) => {
 
@@ -59,7 +60,7 @@ const Detailed = ({ article_content }) => {
             <div className="bread-div">
               <Breadcrumb>
                 <Breadcrumb.Item>
-                  <a href="/">首页</a>
+                <Link href={{pathname:'/'}}>首页</Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>视频列表</Breadcrumb.Item>
                 <Breadcrumb.Item>xxxx</Breadcrumb.Item>
@@ -110,7 +111,7 @@ const Detailed = ({ article_content }) => {
 Detailed.getInitialProps = async (context) => {
   const id = context.query.id;
   const promise = new Promise((resolve) => {
-    axios("http://127.0.0.1:7001/default/getArticleById/" + id).then((res) => {
+    axios(servicePath.getArticleById+id).then((res) => {
       resolve(res.data.data[0]);
     });
   });
